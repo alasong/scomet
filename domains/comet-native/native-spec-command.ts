@@ -1,12 +1,14 @@
 import { promises as fs } from 'node:fs';
 import path from 'node:path';
 import { readSdkChangeOwner } from '../workflow-contract/change-runtime-owner.js';
+import { listPdcaCriteria, updatePdcaStatus } from './native-pdca-store.js';
 import {
   assertNoArguments,
   configuredPaths,
   NativeUsageError,
   requiredPositional,
   success,
+  takeFlag,
   takeOption,
   type DispatchResult,
 } from './native-cli-shared.js';
@@ -129,6 +131,48 @@ export async function nativeSpecCommand(
       `Revoked Native capability association in ${name}\n`,
     );
   }
+  if (subcommand === 'list') {
+    const name = requiredPositional(args, 'change name');
+    const jsonOutput = takeFlag(args, '--json');
+    assertNoArguments(args);
+    const { paths } = await configuredPaths(projectRoot);
+    const criteria = await listPdcaCriteria(paths, name);
+    if (jsonOutput) {
+      return success('spec list', { criteria });
+    }
+    if (criteria.length === 0) {
+      return success('spec list', { criteria }, `No PDCA criteria found for ${name}\n`);
+    }
+    const lines = [
+      'ID              PDCA    Text',
+      ...criteria.map((c) => {
+        const idShort = c.id.length > 15 ? c.id.slice(0, 12) + '...' : c.id;
+        const textShort = c.text.length > 40 ? c.text.slice(0, 37) + '...' : c.text;
+        return `${idShort.padEnd(16)}${c.pdca_status.padEnd(8)}${textShort}`;
+      }),
+    ];
+    return success('spec list', { criteria }, lines.join('\n') + '\n');
+  }
+  if (subcommand === 'update-status') {
+    const name = requiredPositional(args, 'change name');
+    const acceptanceId = requiredPositional(args, 'acceptance id');
+    const status = requiredPositional(args, 'pdca status (plan|do|check|act|done)');
+    const note = takeOption(args, '--note');
+    assertNoArguments(args);
+    const { paths } = await configuredPaths(projectRoot);
+    try {
+      const result = await updatePdcaStatus(paths, name, acceptanceId, status, note);
+      return success(
+        'spec update-status',
+        result,
+        `Updated ${acceptanceId}: ${result.previous_status ?? '(new)'} → ${result.new_status}\n`,
+      );
+    } catch (error) {
+      throw new NativeUsageError(
+        `Failed to update PDCA status: ${error instanceof Error ? error.message : String(error)}`,
+      );
+    }
+  }
   if (subcommand !== 'remove') {
     throw new NativeUsageError(`Unknown spec command: ${subcommand}`);
   }
@@ -163,4 +207,5 @@ export async function nativeSpecCommand(
     { ...state, continuation: nativePortableContinuation(state) },
     `Marked Native capability ${capability} for removal in ${name}\n`,
   );
+  throw new NativeUsageError(`Unknown spec command: ${subcommand}`);
 }

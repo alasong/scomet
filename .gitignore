@@ -135,6 +135,9 @@ skills-lock.json
 
 .comet/
 
+# RPD engine state
+.fat/
+
 # Local Git worktrees
 .worktrees/
 .agent/

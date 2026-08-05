@@ -13,6 +13,26 @@ export type NativeClarificationMode =
   WorkflowNativeEnabledProjectConfig['native']['clarification_mode'];
 export type NativeVerificationProtocol = 'legacy-v1';
 
+export type NativePdcaStatus = 'plan' | 'do' | 'check' | 'act' | 'done';
+
+export interface PdcaCoverageStats {
+  total: number;
+  plan: number;
+  do: number;
+  check: number;
+  act: number;
+  done: number;
+  coverage: number;
+}
+
+export interface NativeAcceptanceCriterionWithPdca {
+  id: string;
+  text: string;
+  pdca_status: NativePdcaStatus;
+  pdca_updated_at?: string;
+  pdca_note?: string;
+}
+
 export const NATIVE_RUNTIME_PROTOCOL_VERSION = 3 as const;
 export const NATIVE_CHANGE_SCHEMA = 'comet.native.v3' as const;
 export const NATIVE_V2_CHANGE_SCHEMA = 'comet.native.v2' as const;

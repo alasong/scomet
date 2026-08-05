@@ -5,6 +5,7 @@ import { observeRuntimeOperation } from '../../platform/process/runtime-performa
 import { nativeCancelCommand } from './native-cancel-command.js';
 import { nativeCheckCommand } from './native-check-command.js';
 import { nativeDoctorCommand } from './native-doctor-command.js';
+import { nativeExecutionCommand } from './native-execution-command.js'
 import { nativeHookGuardCommand } from './native-hook-guard-command.js';
 import { nativeInitCommand } from './native-init-command.js';
 import { nativeNewCommand } from './native-new-command.js';
@@ -55,6 +56,7 @@ const COMMAND_HANDLERS: Record<string, NativeCommandHandler> = {
   root: nativeRootCommand,
   new: nativeNewCommand,
   spec: nativeSpecCommand,
+  execution: nativeExecutionCommand,
   show: nativeShowCommand,
   status: nativeStatusCommand,
   select: nativeSelectCommand,
