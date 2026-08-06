@@ -31,6 +31,10 @@ Login only.
 No social auth.
 # Acceptance examples
 - Valid credentials work.
+# Requirements traceability
+| Requirement | Spec | Acceptance |
+|-|-|-|
+| Example requirement | spec.md | Scenario: example |
 # Constraints and invariants
 Keep compatibility.
 # Decisions

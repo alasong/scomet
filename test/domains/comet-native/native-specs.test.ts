@@ -26,6 +26,10 @@ One capability.
 No migration.
 # Acceptance examples
 - The feature works.
+# Requirements traceability
+| Requirement | Spec | Acceptance |
+|-|-|-|
+| Example requirement | spec.md | Scenario: example |
 # Constraints and invariants
 Keep compatibility.
 # Decisions

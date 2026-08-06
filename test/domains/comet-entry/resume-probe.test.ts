@@ -58,6 +58,10 @@ Cache expiration behavior.
 No storage migration.
 # Acceptance examples
 - Cache entries expire predictably.
+# Requirements traceability
+| Requirement | Spec | Acceptance |
+|-|-|-|
+| Example requirement | spec.md | Scenario: example |
 # Constraints and invariants
 Preserve existing APIs.
 # Decisions

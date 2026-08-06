@@ -130,6 +130,10 @@ Ship login.
 - Invalid credentials are rejected
   without revealing which field failed.
 
+# Requirements traceability
+| Requirement | Spec | Acceptance |
+|-|-|-|
+| Example requirement | spec.md | Scenario: example |
 # Constraints and invariants
 Keep compatibility.
 `;

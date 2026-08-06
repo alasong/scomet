@@ -44,6 +44,10 @@ None.
 No language detection.
 # Acceptance examples
 - Two sentences return two.
+# Requirements traceability
+| Requirement | Spec | Acceptance |
+|-|-|-|
+| Example requirement | spec.md | Scenario: example |
 # Constraints and invariants
 Keep existing APIs stable.
 # Decisions

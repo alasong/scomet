@@ -35,6 +35,10 @@ Update the declared implementation.
 No unrelated refactor.
 # Acceptance examples
 - The evidence-bound behavior works.
+# Requirements traceability
+| Requirement | Spec | Acceptance |
+|-|-|-|
+| Example requirement | spec.md | Scenario: example |
 # Constraints and invariants
 Old evidence must become stale when implementation changes.
 # Decisions

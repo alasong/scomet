@@ -52,6 +52,10 @@ No unrelated changes.
 # Acceptance examples
 - The focused behavior works.
 - The focused result remains observable.
+# Requirements traceability
+| Requirement | Spec | Acceptance |
+|-|-|-|
+| Example requirement | spec.md | Scenario: example |
 # Constraints and invariants
 Keep callers stable.
 # Decisions

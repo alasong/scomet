@@ -8,7 +8,8 @@ export type NativeBriefSection =
   | 'constraints'
   | 'decisions'
   | 'openQuestions'
-  | 'verificationExpectations';
+  | 'verificationExpectations'
+  | 'requirementsTraceability';
 
 export type NativeBriefStructureSubsection = 'created' | 'modified' | 'deleted' | 'notCreated';
 
@@ -37,6 +38,7 @@ const BRIEF_HEADINGS: Record<NativeArtifactLanguage, Record<NativeBriefSection, 
     decisions: 'Decisions',
     openQuestions: 'Open questions',
     verificationExpectations: 'Verification expectations',
+    requirementsTraceability: 'Requirements traceability',
   },
   'zh-CN': {
     outcome: '目标',
@@ -47,6 +49,7 @@ const BRIEF_HEADINGS: Record<NativeArtifactLanguage, Record<NativeBriefSection, 
     decisions: '决策',
     openQuestions: '待解决问题',
     verificationExpectations: '验证预期',
+    requirementsTraceability: '需求追溯',
   },
 };
 
@@ -201,7 +204,13 @@ export function nativeBriefTemplate(
   language: NativeArtifactLanguage,
   options: { compact?: boolean } = {},
 ): string {
-  const sections: NativeBriefSection[] = ['outcome', 'scope', 'nonGoals', 'acceptanceExamples'];
+  const sections: NativeBriefSection[] = [
+    'outcome',
+    'scope',
+    'nonGoals',
+    'acceptanceExamples',
+    'requirementsTraceability',
+  ];
   if (options.compact === false)
     sections.push('constraints', 'decisions', 'openQuestions', 'verificationExpectations');
   return sections

@@ -41,6 +41,11 @@ Runtime 返回的 `artifacts` 是当前工作区的唯一位置依据：`briefPa
 
 `brief.md` 记录目标、范围、非目标、约束和影响结果的用户决定。Agent 按任务需要组织段落、列表或表格，说明预计修改的位置和职责；模板中的标题和目录树是写作参考。已有有效确认不因格式变化撤回。
 
+### 需求追溯
+
+`brief.md` 另有 `# 需求追溯` 章节：Outcome 与 Scope 中每条实质需求一行，映射到对应的 Spec 文件与验收 ID。模板始终生成该章节；任何一条需求没有落到行上，Shape 都不算完成——要么补出对应 Spec，要么移入非目标。非目标不计入表格。
+
+
 新建普通 SDK Run 可用 `comet native next <change> --session <真实会话标识> --json` 领取 Shape 任务，从自由格式需求中提取完整、可验证的验收条目。在返回的 `resultTemplate.output.acceptance` 中填写每项 `source` 和 `text`，按返回命令提交。来源引用本 change 的 `brief.md` 或声明的目标 Spec。CLI 分配 A1..An，等待用户确认后才允许实现。
 
 旧入口仍可从 brief 的 `Acceptance examples` 顶层列表和 Spec 的完整 `Scenario:` 场景提取条目。该格式用于便捷提取，需求是否充分由 Agent 判断。对应已有条目的场景可以用 `Acceptance: A1` 或 `验收：A1` 引用当前 ID，避免重复。

@@ -60,6 +60,8 @@ Investigate facts that can be established without the user. Ask only about decis
 While shaping a large request, assess it using [Supervisor decomposition and confirmation](reference/clarification.md#supervisor-decomposition-and-confirmation). When the work splits cleanly, recommend a Supervisor Change first and explain the main dependencies and who verifies each result.
 
 Record the user's explicitly requested file locations, required sections, and artifact formats in the brief constraints, and prepare those contents as requested. Do not move them to another file because of a default location in a template. During handoff and recovery, check artifacts against these confirmed constraints rather than retaining only the business examples.
+Then fill the brief's **Requirements traceability** section: extract every substantive requirement from Outcome and Scope, map each to its Spec file and acceptance criterion, and treat a requirement without a row as unresolved (add the Spec or move it to Non-goals). Include the traceability coverage in the Shape summary you give the user.
+
 
 After drafting Shape, compare its outcome, acceptance criteria and non-goals with the original request and public project materials. Before excluding behavior needed by the implementation, explain how that changes the requested outcome. When several interpretations remain possible, state the evidence and impact; an Agent's chosen interpretation is not a user-confirmed requirement. Simulated approval in a fixed benchmark cannot change the original task.
 
