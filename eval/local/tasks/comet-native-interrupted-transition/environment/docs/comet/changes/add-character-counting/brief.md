@@ -7,6 +7,11 @@ No encoding conversion or grapheme counting.
 # Acceptance examples
 - Input `abc` prints `Characters: 3`.
 - Whitespace and newline characters are included.
+# Requirements traceability
+| Requirement | Spec | Acceptance |
+|-------------|------|------------|
+| Add --characters CLI flag | character-counting/spec.md | Input `abc` prints `Characters: 3` |
+| Preserve existing counters | character-counting/spec.md | Keep existing word and line output stable |
 # Constraints and invariants
 Keep existing word and line output stable.
 # Decisions
