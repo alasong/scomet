@@ -40,9 +40,9 @@ describe('Native artifact language', () => {
     expect(nativeBriefTemplate('zh-CN')).toContain('# 验收示例\n');
     expect(nativeBriefTemplate('zh-CN')).not.toContain('# Outcome\n');
     expect(nativeBriefTemplate('en')).toContain('# Outcome\n');
-    expect(nativeBriefTemplate('en').match(/^# /gm)).toHaveLength(4);
-    expect(nativeBriefTemplate('zh-CN').match(/^# /gm)).toHaveLength(4);
-    expect(nativeBriefTemplate('en', { compact: false }).match(/^# /gm)).toHaveLength(8);
+    expect(nativeBriefTemplate('en').match(/^# /gm)).toHaveLength(5);
+    expect(nativeBriefTemplate('zh-CN').match(/^# /gm)).toHaveLength(5);
+    expect(nativeBriefTemplate('en', { compact: false }).match(/^# /gm)).toHaveLength(9);
     expect(nativeHeadingKey('验收示例')).toBe('acceptanceExamples');
     expect(nativeHeadingKey('Acceptance examples')).toBe('acceptanceExamples');
   });

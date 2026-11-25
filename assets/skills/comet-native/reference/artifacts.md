@@ -41,9 +41,7 @@ Runtime's `artifacts` object is the sole location authority for the current work
 
 `brief.md` records the outcome, scope, non-goals, constraints, and user decisions affecting the result. The Agent chooses paragraphs, lists, or tables and describes expected change locations and responsibilities. Template headings and directory trees are writing aids. Formatting changes do not revoke valid confirmation.
 
-### Requirements traceability
-
-`brief.md` also carries a `# Requirements traceability` section: one row per substantive Outcome or Scope item, mapping the requirement to its Spec file and acceptance ID. The brief template always emits the section, and Shape is not complete until every requirement has a row; a requirement with no matching Spec is either specified or moved to Non-goals. Non-goals are excluded from the table.
+The same brief also carries a `# Requirements traceability` section: one row per substantive Outcome or Scope item, mapping the requirement to its Spec file and acceptance ID. The brief template always emits the section, and Shape is not complete until every requirement has a row; a requirement with no matching Spec is either specified or moved to Non-goals. Non-goals are excluded from the table.
 
 
 For a new ordinary SDK Run, claim Shape with `comet native next <change> --session <actual-session> --json`. Extract complete, verifiable criteria from freeform requirements. Fill each source and text in `resultTemplate.output.acceptance` and submit with the returned command. Sources reference this change brief or declared target Specs. CLI assigns A1..An and waits for user confirmation before implementation.
