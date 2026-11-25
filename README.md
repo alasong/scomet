@@ -336,3 +336,15 @@ Track our development progress and upcoming features on the [Comet Roadmap](http
 ## Reference
 
 [LINUX DO - 新的理想型社区](https://linux.do/)
+
+---
+
+## Fork 说明（alasong/scomet）
+
+本仓库是 [rpamis/comet](https://github.com/rpamis/comet) 的 fork，与上游 master 保持同步，只保留以下本地改动：
+
+1. **PDCA 执行状态追踪**：`comet native spec list` / `spec update-status`，配合 Gate 检查把验收条目按 Plan → Do → Check → Act → Done 推进（`domains/comet-native/native-pdca-store.ts`、`native-pdca.ts`、`native-execution-command.ts`）。
+2. **需求追溯矩阵**：`brief.md` 固定包含 `Requirements traceability` / `需求追溯` 章节，把 Outcome 与 Scope 中的每条需求映射到 Spec 与验收 ID，避免 Shape 阶段漏需求（`domains/comet-native/native-artifact-language.ts` 与中英文 Skill 文档）。
+3. **本地开发安装脚本**：`scripts/install-local.sh`，支持把构建产物同步到本机 Comet 安装目录以及 Qoder、Claude Code 等平台配置。
+
+同步方式：`git remote add upstream https://github.com/rpamis/comet.git && git fetch upstream && git rebase upstream/master`。
